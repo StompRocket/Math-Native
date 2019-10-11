@@ -12,7 +12,10 @@ namespace StompRocket.Math
             PlaceholderText = "Enter an expression",
             Style = "TextConsole",
         };
-        private readonly Label MathResult = new Label();
+        private readonly Label MathResult = new Label
+        {
+            Style = "LargeText"
+        };
 
         private readonly ListBox CalculationBox = new ListBox();
         private readonly LinkedList<Calc> Calculations = new LinkedList<Calc>();
@@ -56,6 +59,8 @@ namespace StompRocket.Math
                 Panel1 = MathInput,
                 Panel2 = MathResult,
             };
+
+            Padding = 10;
 
             Content = new Splitter
             {

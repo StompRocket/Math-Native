@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using System.ComponentModel;
 using Eto.Forms;
@@ -32,6 +33,7 @@ namespace StompRocket.Math
             }
         }
         private Label OutField;
+        private List<Function> Functions = new List<Function>();
         public double Result = 0;
         public bool Success = true;
 
