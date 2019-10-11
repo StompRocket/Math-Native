@@ -76,9 +76,10 @@ namespace StompRocket.Math
             var aboutDialog = new AboutDialog
             {
                 ProgramName = "Stomp Rocket Math",
-                Designers = new[] { "swissChili" },
+                Developers = new[] { "swissChili" },
                 Copyright = "Copyright (c) 2019 Stomp Rocket <stomprocket.io>, All Rights Reserved",
                 ProgramDescription = "A Smart Calculator",
+                License = License.Text,
             };
 
             var evalBtn = new Command
