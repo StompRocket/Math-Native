@@ -11,6 +11,8 @@ There will not be any official binary releases until this is at least in beta.
 
 ![Stomp Rocket Math on Linux](sr-math.png)
 
+![Stomp Rocket Math on MacOS](math-macos.jpg)
+
 ## Building
 
 You should use Mono Develop or Visual Studio to build this project. While it is
