@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	
+  <PropertyGroup>
+    <TargetFramework>netstandard1.6</TargetFramework>
+    <RootNamespace>StompRocket.Math</RootNamespace>
+    <PackageVersion>1.0</PackageVersion>
+    <Title>StompRocket.Math</Title>
+    <Copyright>Copyright © 2019</Copyright>
+    <Description>Description of StompRocket.Math</Description>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="Eto.Forms" Version="2.4.1" />
+    <PackageReference Include="MathParser.org-mXparser" Version="4.3.3" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <None Remove="Readme.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\Readme.md" />
+  </ItemGroup>
+</Project>
