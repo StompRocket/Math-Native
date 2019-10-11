@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Collections.Generic;
 using Eto.Forms;
 using Eto.Drawing;
@@ -45,10 +46,18 @@ namespace StompRocket.Math
             }
         }
 
+        public void EditSelected(object sender, EventArgs e)
+        {
+            var selected = Calculations.ElementAt(CalculationBox.SelectedIndex);
+            CalcModel.Calculation = selected.Calculation;
+            CalculationBox.SelectedIndex = -1;
+        }
+
         public MainForm()
         {
             Title = "Stomp Rocket Math";
             ClientSize = new Size(720, 480);
+            //Icon = Icon.FromResource("StompRocketLogo.ico");
 
             CalcModel = new CalcModel(MathResult);
 
@@ -85,10 +94,19 @@ namespace StompRocket.Math
             var evalBtn = new Command
             {
                 MenuText = "Evaluate",
-                Shortcut = Keys.Enter,
+                ToolBarText = "Evaluate",
+                Shortcut = Application.Instance.CommonModifier | Keys.Enter,
+                //Image = new Icon(),
             };
             evalBtn.Executed += Evaluate;
 
+            var editSeletedBtn = new Command
+            {
+                MenuText = "Edit Selected",
+                ToolBarText = "Edit Selected",
+                Shortcut = Application.Instance.CommonModifier | Keys.E,
+            };
+            editSeletedBtn.Executed += EditSelected;
 
             var quitCommand = new Command { MenuText = "Quit", Shortcut = Application.Instance.CommonModifier | Keys.Q };
             quitCommand.Executed += (sender, e) => Application.Instance.Quit();
@@ -102,7 +120,7 @@ namespace StompRocket.Math
                 Items =
                 {
                     // File submenu
-                    new ButtonMenuItem { Text = "&File", Items = { evalBtn } },
+                    new ButtonMenuItem { Text = "&File", Items = { evalBtn, editSeletedBtn } },
                     // new ButtonMenuItem { Text = "&Edit", Items = { /* commands/items */ } },
                     // new ButtonMenuItem { Text = "&View", Items = { /* commands/items */ } },
                 },
@@ -116,7 +134,7 @@ namespace StompRocket.Math
             };
 
             // create toolbar
-            // ToolBar = new ToolBar { Items = { } };
+            ToolBar = new ToolBar { Items = { evalBtn, editSeletedBtn } };
         }
     }
 }
